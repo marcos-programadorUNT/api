@@ -50,20 +50,17 @@ class PrestamoController extends Controller
             $prestamo->montoPrestamo=$request->montoPrestamo;
             $prestamo->fechaPrestamo=$request->fechaPrestamo;
             $prestamo->estadoPrestamo=$request->estadoPrestamo;
+            $prestamo->cuotasPrestamo=$request->cuotasPrestamo;
             $prestamo->idCliente=$request->idCliente;
             $prestamo->save();
 
-            $cliente=DB::table('cliente')->where('idCliente','=',$request->idCliente)
-                   ->first();
+            $cliente=DB::table('cliente')
+            ->where('idCliente','=',$request->idCliente)
+            ->first();
 
-            /* $datosEmail = new \stdClass();
-            $datosEmail->cliente=$cliente;
-            $datosEmail->prestamo=$prestamo;
-            $datosEmail->save(); */
-
-            
-            Mail::to($cliente->emailCliente)->send(new DemoEmail($prestamo, $cliente));
-            
+            Mail::to($cliente->emailCliente)
+            ->send(new DemoEmail($prestamo, $cliente));
+            return $prestamo;
         }
         catch (Exception $e){
             return "Error - ". $e->getMessage();

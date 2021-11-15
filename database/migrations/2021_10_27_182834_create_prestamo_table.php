@@ -16,6 +16,7 @@ class CreatePrestamoTable extends Migration
         Schema::create('prestamo', function (Blueprint $table) {
             $table->bigIncrements('idPrestamo');
             $table->decimal('montoPrestamo', 8, 2);
+            $table->bigInteger('cuotasPrestamo');
             $table->date('fechaPrestamo')->format('d/m/Y');
             $table->string('estadoPrestamo',1000);
 

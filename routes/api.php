@@ -18,6 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::post('registrar', 'ClienteController@store');
 Route::get('cliente','ClienteController@index');
 Route::get('clientes', 'ClienteController@logueo');
 Route::get('prestamoscliente', 'PrestamoController@index');

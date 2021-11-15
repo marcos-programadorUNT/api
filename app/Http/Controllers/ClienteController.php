@@ -11,30 +11,13 @@ class ClienteController extends Controller
     
     public function logueo(Request $request)
     {
-        $cont= DB::table('cliente')
-               ->where('dniCliente',$request->dniCliente)
-               ->where('contraseñaCliente',$request->contraseñaCliente)
-               ->count();
-        
-        if($cont == 0)
-            return "Error en logueo";
-        else
-        {
-            if ($cont > 0)
-            {
-                /* $datosCliente=DB::table('cliente')
-                              ->where('dniCliente',$request->dniCliente)
-                              ->where('contraseñaCliente',$request->contraseñaCliente)
-                              ->get();
-                return response()->json($datosCliente); */
-
-                $cliente = Cliente::where('dniCliente',$request->dniCliente)
-                ->where('contraseñaCliente',$request->contraseñaCliente)->get();
-                return $cliente;
-            }
-
+        $cliente = Cliente::where('dniCliente',$request->dniCliente)
+        ->where('contraseñaCliente',$request->contraseñaCliente)->first();
+        if ($cliente) {
+            return $cliente;
+        }else {
+            return "Error no encontrado";
         }
-       
     }
     
     /**
@@ -65,7 +48,20 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        
+        try{
+            $cliente=new Cliente();
+            $cliente->emailCliente=$request->emailCliente;
+            $cliente->nombreCliente=$request->nombreCliente;
+            $cliente->direccionCasaCliente=$request->direccionCasaCliente;
+            $cliente->dniCliente=$request->dniCliente;
+            $cliente->celularCliente=$request->celularCliente;
+            $cliente->contraseñaCliente=$request->contraCliente;
+            $cliente->save();
+            return $cliente;
+        }
+        catch (Exception $e){
+            return "Error - ". $e->getMessage();
+        }
     }
 
     /**
