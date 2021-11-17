@@ -45,7 +45,7 @@ class PrestamoController extends Controller
      */
     public function store(Request $request)
     {
-        try{
+        if (!Cliente::find($request->dniCliente)) {
             $cliente=new Cliente();
             $cliente->dniCliente = $request->dniCliente;
             $cliente->nombreCliente = $request->nombreCliente;
@@ -63,10 +63,11 @@ class PrestamoController extends Controller
             Mail::to($cliente->emailCliente)
             ->send(new DemoEmail($prestamo, $cliente));
             return $prestamo;
+        }else {
+            return 2;
         }
-        catch (Exception $e){
-            return $e;
-        }
+    
+        
     }
 
     /**
