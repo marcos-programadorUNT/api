@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Prestamo extends Model
 {
-    protected $fillable = ['montoPrestamo','fechaPrestamo','estadoPrestamo','idCliente','idTrabajador'];
+    protected $fillable = ['montoPrestamo','estadoPrestamo','idTrabajador'];
     public $timestamps=false;
-    protected $primaryKey = "idPrestamo";
+    protected $primaryKey = "dniCliente";
     protected $table="prestamo";
 }

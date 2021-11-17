@@ -20,7 +20,7 @@ class PrestamoController extends Controller
     {
         try {
             $cliente = Cliente::where('dniCliente',$request->dniCliente)->first();
-            $prestamos = Prestamo::where('idCliente',$cliente->dniCliente)->get();
+            $prestamos = Prestamo::where('dniCliente',$cliente->dniCliente)->get();
             return [$prestamos,$cliente];
         } catch (Exception $e) {
             return $e;
