@@ -50,6 +50,7 @@ class PrestamoController extends Controller
             $cliente->dniCliente = $request->dniCliente;
             $cliente->nombreCliente = $request->nombreCliente;
             $cliente->emailCliente = $request->emailCliente;
+            $cliente->celularCliente = $request->celularCliente;
             $cliente->save();
 
             $prestamo=new Prestamo();
