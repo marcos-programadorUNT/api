@@ -20,10 +20,10 @@ class PrestamoController extends Controller
     {
         try {
             $cliente = Cliente::where('dniCliente',$request->dniCliente)->first();
-            $prestamos = Prestamo::where('idCliente',$cliente->idCliente)->get();
+            $prestamos = Prestamo::where('idCliente',$cliente->dniCliente)->get();
             return [$prestamos,$cliente];
         } catch (Exception $e) {
-            return "Error - ". $e->getMessage();
+            return $e;
         }
     }
 
@@ -46,24 +46,25 @@ class PrestamoController extends Controller
     public function store(Request $request)
     {
         try{
-            $prestamo=new Prestamo();
-            $prestamo->montoPrestamo=$request->montoPrestamo;
-            $prestamo->fechaPrestamo=$request->fechaPrestamo;
-            $prestamo->estadoPrestamo=$request->estadoPrestamo;
-            $prestamo->cuotasPrestamo=$request->cuotasPrestamo;
-            $prestamo->idCliente=$request->idCliente;
-            $prestamo->save();
+            $cliente=new Cliente();
+            $cliente->dniCliente = $request->dniCliente;
+            $cliente->nombreCliente = $request->nombreCliente;
+            $cliente->emailCliente = $request->emailCliente;
+            $cliente->save();
 
-            $cliente=DB::table('cliente')
-            ->where('idCliente','=',$request->idCliente)
-            ->first();
+            $prestamo=new Prestamo();
+            $prestamo->dniCliente=$request->dniCliente;
+            $prestamo->montoPrestamo=$request->montoPrestamo;
+            $prestamo->cuotasPrestamo=$request->cuotasPrestamo;
+            $prestamo->estadoPrestamo=$request->estadoPrestamo;
+            $prestamo->save();
 
             Mail::to($cliente->emailCliente)
             ->send(new DemoEmail($prestamo, $cliente));
             return $prestamo;
         }
         catch (Exception $e){
-            return "Error - ". $e->getMessage();
+            return $e;
         }
     }
 

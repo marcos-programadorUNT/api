@@ -14,13 +14,12 @@ class CreatePrestamoTable extends Migration
     public function up()
     {
         Schema::create('prestamo', function (Blueprint $table) {
-            $table->bigIncrements('idPrestamo');
+            $table->string('dniCliente',8)->primary();
             $table->decimal('montoPrestamo', 8, 2);
             $table->bigInteger('cuotasPrestamo');
-            $table->date('fechaPrestamo')->format('d/m/Y');
             $table->string('estadoPrestamo',1000);
 
-            $table->foreignId('idCliente')->constrained('cliente')->references('idCliente')->onDelete('cascade');
+            $table->foreign('dniCliente')->constrained('cliente')->references('dniCliente')->on('cliente')->onDelete('cascade');
             $table->bigInteger('idTrabajador')->nullable()->unsigned();
             $table->foreign('idTrabajador')->references('idTrabajador')->on('trabajador')->onDelete('cascade');
 

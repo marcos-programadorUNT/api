@@ -27,7 +27,7 @@ class ClienteController extends Controller
      */
     public function index(Request $request)
     {
-        return Cliente::where('idCliente',$request->idCliente)->first();
+        return Cliente::where('dniCliente',$request->dniCliente)->first();
     }
 
     /**
