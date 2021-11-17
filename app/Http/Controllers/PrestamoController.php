@@ -56,7 +56,7 @@ class PrestamoController extends Controller
             $prestamo->dniCliente=$request->dniCliente;
             $prestamo->montoPrestamo=$request->montoPrestamo;
             $prestamo->cuotasPrestamo=$request->cuotasPrestamo;
-            $prestamo->estadoPrestamo=$request->estadoPrestamo;
+            $prestamo->estadoPrestamo="pendiente";
             $prestamo->save();
 
             Mail::to($cliente->emailCliente)
