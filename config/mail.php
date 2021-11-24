@@ -95,8 +95,10 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'practicastesis3108@gmail.com'),
-        'name' => env('MAIL_FROM_NAME', 'Financiera Financial'),
+       /*  'address' => env('MAIL_FROM_ADDRESS', 'practicastesis3108@gmail.com'), */
+        'address' => 'practicastesis3108@gmail.com',
+        'name' => 'Financiera Financial',
+        /* 'name' => env('MAIL_FROM_NAME', 'Financiera Financial'), */
     ],
 
     /*
