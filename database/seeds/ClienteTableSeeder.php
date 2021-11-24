@@ -15,8 +15,6 @@ class ClienteTableSeeder extends Seeder
         Cliente::create([
              'dniCliente' => '71238739',
              'nombreCliente' => 'Gustavo Piminchumo',
-             'direccionCasaCliente' => 'Huanchaquito',
-             'contraseñaCliente' => 'crackenbd',
              'emailCliente' => 'gustavopimol.98@gmail.com',
              'celularCliente' => '985920534'
          ]
