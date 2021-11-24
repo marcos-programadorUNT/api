@@ -254,8 +254,18 @@
                                       >
                                         <span style="font-size: 15px"
                                           >
-                                          Sr. <strong>{{ $cliente->nombreCliente }}</strong> su préstamo solicitado el día <strong>{{ $prestamo->fechaPrestamo }}</strong> de
-                                          s/<strong>{{ $prestamo->montoPrestamo }}</strong> en <strong>{{ $prestamo->cuotasPrestamo }}</strong> cuotas se encuentra en un estado <strong>{{ $prestamo->estadoPrestamo }}</strong>.
+                                          
+                                          <p>Buenos día,Sr(a) {{ $cliente->nombreCliente }}</p>
+                                          <strong>SU PRÉSTAMO HA SIDO SOLICITADO</strong>
+                                          <p>Con datos:</p>
+
+                                          <li>DNI: {{$cliente->dniCliente}}</li>
+                                          <li>NOMBRE Y APELLIDOS: {{$cliente->nombreCliente}}</li>
+                                          <li>CORREO: {{$cliente->emailCliente}}</li>
+                                          <li>CELULAR: {{$cliente->celularCliente}}</li>
+                                          <li>MONTO DE PRÉSTAMO: {{$prestamo->montoPrestamo}}</li>
+                                          <li>CUOTAS DE PRÉSTAMO: {{$prestamo->cuotasPrestamo}}</li>
+
                                           
                                           </span
                                         >
