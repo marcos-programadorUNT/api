@@ -255,7 +255,7 @@
                                         <span style="font-size: 15px"
                                           >
                                           
-                                          <p>Buenos día,Sr(a) {{ $cliente->nombreCliente }}</p>
+                                          <p>Buen día, Sr(a) {{ $cliente->nombreCliente }}</p>
                                           <strong>SU PRÉSTAMO HA SIDO SOLICITADO</strong>
                                           <p>Con datos:</p>
 
