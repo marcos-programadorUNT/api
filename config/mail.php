@@ -49,7 +49,7 @@ return [
             'port' =>  587,
             'encryption' => 'tls',
             'username' => 'practicastesis3108@gmail.com',
-            'password' => 'eadbtxhkccijtmaz', /* esta contraseña es de la verificación en dos pasos del gmail*/
+            'password' => 'qdmubvxgyjxqvbxu', /* esta contraseña es de la verificación en dos pasos del gmail*/
             'timeout' => null,
             'auth_mode' => null,
             /* SI SALE ALGÚN ERROR, HACER UN: php artisan config:cache */
