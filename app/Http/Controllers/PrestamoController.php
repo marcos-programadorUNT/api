@@ -60,8 +60,8 @@ class PrestamoController extends Controller
             $prestamo->estadoPrestamo="pendiente";
             $prestamo->save();
 
-            Mail::to($cliente->emailCliente)
-            ->send(new DemoEmail($prestamo, $cliente));
+            // Mail::to($cliente->emailCliente)
+            // ->send(new DemoEmail($prestamo, $cliente));
             return $prestamo;
         }else {
             return 2;
