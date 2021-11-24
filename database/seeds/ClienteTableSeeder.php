@@ -12,15 +12,15 @@ class ClienteTableSeeder extends Seeder
      */
     public function run()
     {
-        // Cliente::create([
-        //     'dniCliente' => '10000000',
-        //     'nombreCliente' => 'Gustavo Piminchumo',
-        //     'direccionCasaCliente' => 'Huanchaquito',
-        //     'contraseñaCliente' => 'crackenbd',
-        //     'emailCliente' => 'gustavopimol.98@gmail.com',
-        //     'celularCliente' => '985920534'
-        // ]
-        // );
+        Cliente::create([
+             'dniCliente' => '71238739',
+             'nombreCliente' => 'Gustavo Piminchumo',
+             'direccionCasaCliente' => 'Huanchaquito',
+             'contraseñaCliente' => 'crackenbd',
+             'emailCliente' => 'gustavopimol.98@gmail.com',
+             'celularCliente' => '985920534'
+         ]
+        );
         // Cliente::create([
         //     'dniCliente' => '12345678',
         //     'nombreCliente' => 'Juan Obando',
